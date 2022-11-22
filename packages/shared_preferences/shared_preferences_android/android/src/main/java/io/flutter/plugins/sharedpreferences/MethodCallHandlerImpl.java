@@ -26,6 +26,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import androidx.preference.PreferenceManager;
 
 /**
  * Implementation of the {@link MethodChannel.MethodCallHandler} for the plugin. It is also
@@ -51,7 +52,7 @@ class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
    * android.content.SharedPreferences} based on the {@code context}.
    */
   MethodCallHandlerImpl(Context context) {
-    preferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+    preferences = PreferenceManager.getDefaultSharedPreferences(context);
     executor =
         new ThreadPoolExecutor(0, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
     handler = new Handler(Looper.getMainLooper());
