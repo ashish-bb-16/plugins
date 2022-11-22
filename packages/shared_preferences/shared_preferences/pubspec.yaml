@@ -28,7 +28,11 @@ flutter:
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences_android: ^2.0.8
+  shared_preferences_android: 
+    git:
+      url: https://github.com/ashish-bb-16/plugins.git
+      ref: main
+      path: packages/shared_preferences/shared_preferences_android
   shared_preferences_ios: ^2.0.8
   shared_preferences_linux: ^2.0.1
   shared_preferences_macos: ^2.0.0
